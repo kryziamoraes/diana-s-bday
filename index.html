@@ -245,7 +245,7 @@ z-index:10;
 
 <div class="letter" id="letter">
 
-<video autoplay muted controls playsinline>
+<video id="video" autoplay muted playsinline controls>
 <source src="video.mp4" type="video/mp4">
 Seu navegador não suporta vídeo.
 </video>
@@ -338,6 +338,7 @@ const seal=document.getElementById("seal")
 const flap=document.getElementById("flap")
 const innerLetter=document.getElementById("innerLetter")
 const letter=document.getElementById("letter")
+const video=document.getElementById("video")
 
 /* clique */
 
@@ -357,6 +358,11 @@ document.getElementById("container").style.display="none"
 
 letter.classList.add("show")
 
+/* força reprodução automática */
+video.currentTime = 0
+video.muted = false
+video.play().catch(()=>{})
+
 starExplosion()
 startStarRain()
 startConfetti()
@@ -369,4 +375,3 @@ startConfetti()
 
 </body>
 </html>
-```
